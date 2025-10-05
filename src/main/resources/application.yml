@@ -8,8 +8,9 @@ spring:
 management:
   endpoints:
     web:
+      base-path: /actuator
       exposure:
-        include: health, info, prometheus
+        include: "*"
   endpoint:
     prometheus:
       enabled: true
@@ -17,6 +18,8 @@ management:
     tags:
       application: user-service
   health:
+    reactive:
+      enabled: true
     diskspace:
       enabled: true
     db:
